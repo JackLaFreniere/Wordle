@@ -76,7 +76,7 @@ public final class Guess {
      * @return an array of letter results
      */
     public LetterResult[] getResults() {
-        return results;
+        return Arrays.copyOf(results, results.length);
     }
 
     /**
@@ -112,7 +112,7 @@ public final class Guess {
      *
      * @param index the index to validate
      */
-    public void validateIndex(int index) {
+    private void validateIndex(int index) {
         // Ensure that the index refers to a valid letter in the guess.
         if (index < 0 || index >= WORD_LENGTH) {
             throw new IllegalArgumentException(
